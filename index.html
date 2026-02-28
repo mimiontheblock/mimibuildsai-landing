@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mimibuildsai — AI Systems That Run Your Business on Autopilot</title>
+    <meta name="description" content="Mimi builds AI systems that automate businesses. Get the AI Agent Blueprint ($19), AI Starter Kit ($97), or a Done-For-You AI build for your business ($497).">
+    <meta name="keywords" content="AI automation for business, build AI agents, AI operating system, automate your business with AI, AI starter kit, done for you AI, mimibuildsai">
+    <meta name="author" content="Mimi — mimibuildsai">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mimibuildsai.com">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mimibuildsai.com">
+    <meta property="og:title" content="mimibuildsai — AI Systems That Run Your Business on Autopilot">
+    <meta property="og:description" content="I run multiple businesses. AI runs them for me. Get the blueprint, the tools, or let me build it for you.">
+    <meta property="og:image" content="https://mimibuildsai.com/og-image.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@mimibuildsai">
+    <meta name="twitter:title" content="mimibuildsai — AI Systems That Run Your Business">
+    <meta name="twitter:description" content="I build AI agents that automate business operations. Blueprint $19 · Starter Kit $97 · Done-For-You $497">
+    <meta name="twitter:image" content="https://mimibuildsai.com/og-image.jpg">
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mimi",
+        "url": "https://mimibuildsai.com",
+        "sameAs": [
+            "https://x.com/mimibuildsai",
+            "https://instagram.com/mimibuildsai",
+            "https://mimibuildsai.gumroad.com"
+        ],
+        "jobTitle": "AI Systems Builder",
+        "description": "Builds AI agents and operating systems that automate business operations. Creator of Spark OS."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "mimibuildsai Products",
+        "itemListElement": [
+            {
+                "@type": "Product",
+                "position": 1,
+                "name": "AI Agent Blueprint",
+                "description": "Step-by-step guide to building your first AI agent. No coding required.",
+                "url": "https://mimibuildsai.gumroad.com/l/howtobuildai",
+                "offers": { "@type": "Offer", "price": "19", "priceCurrency": "USD" }
+            },
+            {
+                "@type": "Product",
+                "position": 2,
+                "name": "AI Starter Kit",
+                "description": "Complete toolkit to build your first AI agent in a day. Templates, tools, and the exact stack used by mimibuildsai.",
+                "url": "https://mimibuildsai.gumroad.com/l/aistarterkit",
+                "offers": { "@type": "Offer", "price": "97", "priceCurrency": "USD" }
+            },
+            {
+                "@type": "Product",
+                "position": 3,
+                "name": "Done-For-You AI Build",
+                "description": "Custom AI system built for your business by mimibuildsai.",
+                "url": "https://mimibuildsai.gumroad.com/l/aiforyou",
+                "offers": { "@type": "Offer", "price": "497", "priceCurrency": "USD" }
+            }
+        ]
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0a0a0f;
+            --card: #12121f;
+            --border: #1e1e35;
+            --cyan: #00e5ff;
+            --purple: #a855f7;
+            --green: #00e676;
+            --yellow: #ffd600;
+            --red: #ff3d57;
+            --text: #e8eaf6;
+            --dim: #6b6b8a;
+        }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 0%, rgba(0,229,255,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(168,85,247,0.04) 0%, transparent 50%);
+            pointer-events: none; z-index: 0;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 16px 40px;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(10,10,15,0.9); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(30,30,53,0.5);
+        }
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700; font-size: 16px; letter-spacing: 1px;
+        }
+        .logo span { color: var(--cyan); }
+        .nav-cta {
+            padding: 8px 20px; background: rgba(0,229,255,0.08);
+            border: 1px solid rgba(0,229,255,0.25); border-radius: 6px;
+            color: var(--cyan); font-size: 13px; font-weight: 600;
+            text-decoration: none; transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+        .nav-cta:hover { background: rgba(0,229,255,0.15); border-color: var(--cyan); }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            padding: 120px 40px 80px; position: relative; z-index: 1;
+            text-align: center;
+        }
+        .hero-inner { max-width: 800px; }
+        .hero-badge {
+            display: inline-block; padding: 6px 16px; border-radius: 20px;
+            background: rgba(168,85,247,0.08); border: 1px solid rgba(168,85,247,0.2);
+            font-size: 12px; color: var(--purple); font-weight: 500;
+            margin-bottom: 24px; letter-spacing: 0.5px;
+        }
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 64px); font-weight: 900;
+            line-height: 1.1; margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text) 0%, var(--cyan) 50%, var(--purple) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero-sub {
+            font-size: 18px; color: var(--dim); max-width: 600px;
+            margin: 0 auto 40px; line-height: 1.7;
+        }
+        .hero-sub strong { color: var(--text); }
+        .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary {
+            padding: 14px 32px; background: var(--cyan);
+            color: #0a0a0f; font-weight: 700; font-size: 15px;
+            border-radius: 8px; text-decoration: none;
+            transition: all 0.3s; border: none; cursor: pointer;
+        }
+        .btn-primary:hover { background: #33ebff; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,229,255,0.25); }
+        .btn-secondary {
+            padding: 14px 32px; background: transparent;
+            border: 1px solid var(--border); color: var(--text);
+            font-weight: 600; font-size: 15px; border-radius: 8px;
+            text-decoration: none; transition: all 0.3s;
+        }
+        .btn-secondary:hover { border-color: var(--purple); color: var(--purple); }
+
+        /* STATS BAR */
+        .stats {
+            display: flex; justify-content: center; gap: 48px;
+            padding: 40px; position: relative; z-index: 1;
+            border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+            background: rgba(18,18,31,0.5); flex-wrap: wrap;
+        }
+        .stat { text-align: center; }
+        .stat-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 32px; font-weight: 700; color: var(--cyan);
+        }
+        .stat-label { font-size: 12px; color: var(--dim); margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* SECTION */
+        section {
+            padding: 100px 40px; position: relative; z-index: 1;
+            max-width: 1100px; margin: 0 auto;
+        }
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px; color: var(--purple); text-transform: uppercase;
+            letter-spacing: 3px; margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: clamp(28px, 4vw, 42px); font-weight: 800;
+            margin-bottom: 20px; line-height: 1.2;
+        }
+        .section-sub { font-size: 16px; color: var(--dim); max-width: 600px; margin-bottom: 48px; }
+
+        /* STORY */
+        .story { max-width: 700px; }
+        .story p {
+            font-size: 16px; color: var(--dim); margin-bottom: 20px; line-height: 1.8;
+        }
+        .story strong { color: var(--text); }
+        .story .highlight {
+            color: var(--cyan); font-weight: 600;
+        }
+
+        /* PRODUCTS */
+        .products-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .product-card {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 14px; padding: 32px; position: relative;
+            transition: all 0.3s; overflow: hidden;
+        }
+        .product-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+            opacity: 0.3;
+        }
+        .product-card:hover { border-color: rgba(0,229,255,0.3); transform: translateY(-4px); }
+        .product-card.featured {
+            border-color: rgba(0,229,255,0.3);
+            background: linear-gradient(135deg, rgba(0,229,255,0.03), rgba(168,85,247,0.03));
+        }
+        .product-card.featured::before { opacity: 0.7; }
+        .product-tag {
+            display: inline-block; padding: 4px 10px; border-radius: 4px;
+            font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px; margin-bottom: 16px;
+        }
+        .tag-starter { background: rgba(0,229,255,0.1); color: var(--cyan); }
+        .tag-popular { background: rgba(168,85,247,0.1); color: var(--purple); }
+        .tag-premium { background: rgba(255,214,0,0.1); color: var(--yellow); }
+        .product-name { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+        .product-price {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px; font-weight: 700; margin-bottom: 16px;
+        }
+        .product-price .currency { font-size: 20px; color: var(--dim); }
+        .product-desc { font-size: 13px; color: var(--dim); margin-bottom: 20px; line-height: 1.7; }
+        .product-features { list-style: none; margin-bottom: 24px; }
+        .product-features li {
+            font-size: 13px; padding: 6px 0; color: var(--dim);
+            border-bottom: 1px solid rgba(30,30,53,0.5);
+            display: flex; align-items: center; gap: 8px;
+        }
+        .product-features li::before { content: '→'; color: var(--cyan); font-weight: 600; }
+        .product-btn {
+            display: block; width: 100%; padding: 14px;
+            text-align: center; border-radius: 8px;
+            font-weight: 700; font-size: 14px; text-decoration: none;
+            transition: all 0.3s;
+        }
+        .btn-cyan { background: var(--cyan); color: #0a0a0f; }
+        .btn-cyan:hover { background: #33ebff; }
+        .btn-purple { background: var(--purple); color: white; }
+        .btn-purple:hover { background: #b96df7; }
+        .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+        .btn-outline:hover { border-color: var(--yellow); color: var(--yellow); }
+
+        /* WHAT YOU GET */
+        .features-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .feature {
+            padding: 24px; background: var(--card);
+            border: 1px solid var(--border); border-radius: 10px;
+        }
+        .feature-icon { font-size: 24px; margin-bottom: 12px; }
+        .feature-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+        .feature-desc { font-size: 12px; color: var(--dim); line-height: 1.6; }
+
+        /* DASHBOARD PREVIEW */
+        .preview-container {
+            margin: 48px 0; border-radius: 14px; overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .preview-bar {
+            background: var(--card); padding: 10px 16px;
+            display: flex; align-items: center; gap: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .preview-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .preview-dot.r { background: #ff5f56; }
+        .preview-dot.y { background: #ffbd2e; }
+        .preview-dot.g { background: #27c93f; }
+        .preview-url {
+            flex: 1; text-align: center; font-size: 11px;
+            color: var(--dim); font-family: 'JetBrains Mono', monospace;
+        }
+        .preview-container iframe {
+            width: 100%; height: 500px; border: none;
+        }
+
+        /* TESTIMONIAL */
+        .testimonial-card {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 14px; padding: 40px; max-width: 600px;
+            margin: 0 auto; text-align: center;
+        }
+        .testimonial-text {
+            font-size: 18px; font-style: italic; color: var(--text);
+            margin-bottom: 20px; line-height: 1.7;
+        }
+        .testimonial-author { font-size: 13px; color: var(--dim); }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 24px 0; cursor: pointer;
+        }
+        .faq-q {
+            font-size: 15px; font-weight: 600; display: flex;
+            justify-content: space-between; align-items: center;
+        }
+        .faq-q::after { content: '+'; color: var(--cyan); font-size: 20px; }
+        .faq-item.open .faq-q::after { content: '−'; }
+        .faq-a {
+            max-height: 0; overflow: hidden; transition: max-height 0.3s;
+            font-size: 14px; color: var(--dim); line-height: 1.7;
+        }
+        .faq-item.open .faq-a { max-height: 200px; padding-top: 16px; }
+
+        /* CTA */
+        .final-cta {
+            text-align: center; padding: 100px 40px;
+            background: linear-gradient(135deg, rgba(0,229,255,0.03), rgba(168,85,247,0.03));
+            border-top: 1px solid var(--border);
+            position: relative; z-index: 1;
+        }
+        .final-cta h2 {
+            font-size: clamp(28px, 4vw, 42px); font-weight: 800; margin-bottom: 16px;
+        }
+        .final-cta p { color: var(--dim); font-size: 16px; margin-bottom: 32px; }
+
+        /* FOOTER */
+        footer {
+            padding: 40px; text-align: center;
+            font-size: 12px; color: var(--dim);
+            border-top: 1px solid var(--border);
+            position: relative; z-index: 1;
+        }
+        footer a { color: var(--cyan); text-decoration: none; }
+
+        /* SOCIAL ICONS */
+        .socials { display: flex; gap: 16px; justify-content: center; margin-top: 16px; }
+        .socials a {
+            color: var(--dim); text-decoration: none; font-size: 13px;
+            transition: color 0.3s;
+        }
+        .socials a:hover { color: var(--cyan); }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav { padding: 12px 20px; }
+            .hero { padding: 100px 20px 60px; }
+            section { padding: 60px 20px; }
+            .stats { gap: 24px; padding: 30px 20px; }
+            .stat-num { font-size: 24px; }
+            .products-grid { grid-template-columns: 1fr; }
+            .hero-ctas { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="logo">mimi<span>builds</span>ai</div>
+        <a href="#products" class="nav-cta">Get the Blueprint →</a>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-inner">
+            <div class="hero-badge">⚡ built by someone who actually uses this stuff</div>
+            <h1>I run 6 businesses. AI runs them for me.</h1>
+            <p class="hero-sub">
+                I built an AI operating system with <strong>7 autonomous agents</strong> that handle
+                payroll, revenue tracking, content, trading, and operations across all my companies.
+                <br><br>
+                Now I'm giving you the exact blueprint.
+            </p>
+            <div class="hero-ctas">
+                <a href="#products" class="btn-primary">See the Products →</a>
+                <a href="#story" class="btn-secondary">Read My Story</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-num">6</div>
+            <div class="stat-label">Businesses Managed</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">7</div>
+            <div class="stat-label">AI Agents Running</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">40+</div>
+            <div class="stat-label">Hours Saved / Week</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">24/7</div>
+            <div class="stat-label">System Uptime</div>
+        </div>
+    </div>
+
+    <!-- STORY -->
+    <section id="story">
+        <div class="section-label">// the backstory</div>
+        <div class="section-title">I was drowning. Then I built a system.</div>
+        <div class="story">
+            <p>
+                I run a premium salon empire in Spain — multiple locations, an education academy,
+                a content studio, and a retail store. All with my partner. All while managing
+                operations from home.
+            </p>
+            <p>
+                Payroll with commission splits. Booking management across locations.
+                Tax compliance for multiple entities. Content for 7 Instagram accounts.
+                Revenue tracking. Team management. <strong>All of it was manual.</strong>
+            </p>
+            <p>
+                I was working 14-hour days and still falling behind. Then I started building
+                AI agents — not chatbots, not prompt templates — <span class="highlight">actual autonomous
+                systems</span> that handle real business operations.
+            </p>
+            <p>
+                Today, I check my phone once in the morning. My AI OS gives me a voice briefing
+                of everything that happened overnight. Revenue across all entities. Agent status.
+                Calendar. Weather. Everything.
+            </p>
+            <p>
+                <strong>I got my life back. Now I'm showing you how.</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- WHAT THE SYSTEM DOES -->
+    <section>
+        <div class="section-label">// the system</div>
+        <div class="section-title">What Spark OS Actually Does</div>
+        <div class="section-sub">This isn't theory. This is what runs my businesses every single day.</div>
+
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">🔱</div>
+                <div class="feature-title">Claw — Orchestrator</div>
+                <div class="feature-desc">The brain. Routes tasks to other agents, handles strategy, coordinates everything. Talks to me via Telegram with a JARVIS-like voice.</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📊</div>
+                <div class="feature-title">EdgeHunter — Trading</div>
+                <div class="feature-desc">Monitors Polymarket 24/7, compares weather forecasts vs market prices, identifies mispriced contracts. Fully autonomous.</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎨</div>
+                <div class="feature-title">Pixel — Creative</div>
+                <div class="feature-desc">Content strategy across 7 accounts. Writes posts, analyzes algorithms, creates calendars. Handles @mimibuildsai and all brand accounts.</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🏛️</div>
+                <div class="feature-title">Atlas — Finance</div>
+                <div class="feature-desc">Unified cash flow across all entities. Invoice scanning, tax compliance, revenue tracking. One dashboard for everything.</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">👔</div>
+                <div class="feature-title">Boss — Operations</div>
+                <div class="feature-desc">Barbershop management system. Commission-based payroll, scheduling, attendance tracking, performance metrics. All automated.</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🛡️</div>
+                <div class="feature-title">Sentinel — Security</div>
+                <div class="feature-desc">API key rotation, access logs, data isolation between agents. Each agent only sees what it needs. Zero trust architecture.</div>
+            </div>
+        </div>
+
+        <!-- Dashboard Preview -->
+        <div class="preview-container">
+            <div class="preview-bar">
+                <div class="preview-dot r"></div>
+                <div class="preview-dot y"></div>
+                <div class="preview-dot g"></div>
+                <div class="preview-url">spark-os.local — Command Center</div>
+            </div>
+            <iframe src="http://localhost:8501" loading="lazy" title="Spark OS Live Dashboard Preview"></iframe>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products">
+        <div class="section-label">// get started</div>
+        <div class="section-title">Choose Your Level</div>
+        <div class="section-sub">Whether you want to learn, build, or have it done — there's an option for you.</div>
+
+        <div class="products-grid">
+            <!-- BLUEPRINT -->
+            <div class="product-card">
+                <div class="product-tag tag-starter">Starter</div>
+                <div class="product-name">The AI Agent Blueprint</div>
+                <div class="product-price"><span class="currency">$</span>19</div>
+                <div class="product-desc">
+                    The complete methodology. How I designed, built, and deployed AI agents
+                    across 6 businesses — without writing code.
+                </div>
+                <ul class="product-features">
+                    <li>Multi-agent architecture breakdown</li>
+                    <li>Step-by-step Telegram bot setup</li>
+                    <li>Voice integration (ElevenLabs)</li>
+                    <li>Dashboard blueprint</li>
+                    <li>Security & permissions guide</li>
+                    <li>Monetization strategies</li>
+                </ul>
+                <a href="https://mimibuildsai.gumroad.com/l/howtobuildai" class="product-btn btn-outline">Get the Blueprint →</a>
+            </div>
+
+            <!-- STARTER KIT -->
+            <div class="product-card featured">
+                <div class="product-tag tag-popular">Most Popular</div>
+                <div class="product-name">AI Starter Kit</div>
+                <div class="product-price"><span class="currency">$</span>97</div>
+                <div class="product-desc">
+                    Everything from the Blueprint + ready-to-use templates, code,
+                    workflows, and a video walkthrough. Skip the learning curve.
+                </div>
+                <ul class="product-features">
+                    <li>Everything in the Blueprint</li>
+                    <li>Dashboard template (plug & play)</li>
+                    <li>Telegram bot starter code</li>
+                    <li>5 automation workflow templates</li>
+                    <li>Automation audit spreadsheet</li>
+                    <li>Tool stack guide with setup links</li>
+                    <li>30-min video walkthrough</li>
+                </ul>
+                <a href="https://mimibuildsai.gumroad.com/l/aistarterkit" class="product-btn btn-cyan">Get the Starter Kit →</a>
+            </div>
+
+            <!-- DFY -->
+            <div class="product-card">
+                <div class="product-tag tag-premium">Premium</div>
+                <div class="product-name">Done-For-You AI Build</div>
+                <div class="product-price"><span class="currency">$</span>497</div>
+                <div class="product-desc">
+                    I build your custom AI system. Telegram bot, dashboard,
+                    automations — tailored to YOUR business. You sit back.
+                </div>
+                <ul class="product-features">
+                    <li>Everything in the Starter Kit</li>
+                    <li>1-on-1 strategy call (60 min)</li>
+                    <li>Custom AI agent built for you</li>
+                    <li>Dashboard configured with your data</li>
+                    <li>3 automations deployed & tested</li>
+                    <li>30-day support via Telegram</li>
+                    <li>Full documentation & training</li>
+                </ul>
+                <a href="https://mimibuildsai.gumroad.com/l/aiforyou" class="product-btn btn-purple">Book Your Build →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO IS THIS FOR -->
+    <section>
+        <div class="section-label">// real talk</div>
+        <div class="section-title">This Is For You If...</div>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">🏪</div>
+                <div class="feature-title">You Run a Business</div>
+                <div class="feature-desc">And you're tired of doing everything manually. Payroll, follow-ups, reporting — you know there's a better way but don't know where to start.</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💻</div>
+                <div class="feature-title">You Want to Sell AI Services</div>
+                <div class="feature-desc">Every business needs this. If you can build it, you can charge $500-2,500 per client. The Starter Kit is your foundation.</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🧠</div>
+                <div class="feature-title">You're Done With "Tips"</div>
+                <div class="feature-desc">You've watched the YouTube videos. You've saved the Twitter threads. Now you want actual architecture, not more theory.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+        <div class="section-label">// questions</div>
+        <div class="section-title">FAQ</div>
+
+        <div class="faq-item">
+            <div class="faq-q">Do I need to know how to code?</div>
+            <div class="faq-a">No. The Blueprint explains everything using no-code tools. The Starter Kit includes ready-made templates. If you can copy and paste, you can build this.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">How is this different from a ChatGPT prompt pack?</div>
+            <div class="faq-a">Completely different. Prompt packs give you better questions. This gives you autonomous systems that run without you. Agents that monitor, decide, and act on their own.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">What if I'm not a business owner?</div>
+            <div class="faq-a">The architecture works for anyone. Freelancers use it to automate client work. Developers use it to build and sell AI services. Students use it to learn real-world AI systems.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">What tools do I need?</div>
+            <div class="faq-a">ChatGPT (free or Plus), a free Telegram account, and optionally a $5/month DigitalOcean server. Total cost under $10/month to run your own AI OS.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Is there a refund policy?</div>
+            <div class="faq-a">Yes. If the Blueprint doesn't help you build at least one working AI agent, email me for a full refund. No questions asked.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">What's the Done-For-You build include exactly?</div>
+            <div class="faq-a">A 60-minute strategy call, a custom AI agent built specifically for your business, a configured dashboard, 3 deployed automations, full documentation, and 30 days of Telegram support.</div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <div class="final-cta">
+        <div class="hero-badge">⚡ stop scrolling. start building.</div>
+        <h2>Your business should run itself.</h2>
+        <p>Pick the level that fits. Start today. No excuses.</p>
+        <div class="hero-ctas">
+            <a href="https://mimibuildsai.gumroad.com/l/howtobuildai" class="btn-primary">$19 — Blueprint</a>
+            <a href="https://mimibuildsai.gumroad.com/l/aistarterkit" class="btn-cyan" style="padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;">$97 — Starter Kit</a>
+            <a href="https://mimibuildsai.gumroad.com/l/aiforyou" class="btn-secondary">$497 — Done For You</a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Built by <a href="https://x.com/mimibuildsai">@mimibuildsai</a> ⚡ Powered by Spark OS</p>
+        <div class="socials">
+            <a href="https://x.com/mimibuildsai">Twitter/X</a>
+            <a href="https://instagram.com/mimibuildsai">Instagram</a>
+            <a href="https://mimibuildsai.gumroad.com">Gumroad</a>
+        </div>
+        <p style="margin-top:16px;font-size:10px;">© 2026 mimibuildsai. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // FAQ toggles
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-q').addEventListener('click', () => {
+                item.classList.toggle('open');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
