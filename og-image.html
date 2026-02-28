@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  width: 1200px; height: 630px; overflow: hidden;
+  background: #07070f;
+  font-family: 'JetBrains Mono', monospace;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 60px 80px;
+  position: relative;
+}
+body::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(0,229,255,0.06) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 50%, rgba(168,85,247,0.06) 0%, transparent 60%);
+}
+.left { flex: 1; position: relative; z-index: 1; }
+.tag { font-size: 13px; color: #00e5ff; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; }
+h1 { font-size: 52px; font-weight: 800; color: #e8eaf6; line-height: 1.15; margin-bottom: 24px; }
+h1 span { color: #00e5ff; }
+.sub { font-size: 18px; color: #6a6a8a; line-height: 1.6; max-width: 520px; margin-bottom: 40px; }
+.products { display: flex; gap: 16px; }
+.pill { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 14px; color: #e8eaf6; }
+.pill .price { color: #00e676; font-weight: 800; }
+
+.right { position: relative; z-index: 1; }
+.card { background: #0d0d20; border: 1px solid #1a1a3a; border-radius: 12px; padding: 20px; width: 280px; }
+.card-title { font-size: 9px; color: #4a4a8a; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+.agent { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid #0f0f25; font-size: 11px; }
+.agent:last-child { border: none; }
+.dot-g { width: 6px; height: 6px; border-radius: 50%; background: #00e676; flex-shrink: 0; }
+.agent-name { color: #e8eaf6; font-weight: 700; width: 80px; }
+.agent-task { color: #4a4a8a; font-size: 10px; }
+
+.domain { position: absolute; bottom: 40px; right: 80px; font-size: 14px; color: #4a4a8a; letter-spacing: 2px; z-index: 1; }
+.domain span { color: #00e5ff; }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="left">
+  <div class="tag">// mimibuildsai</div>
+  <h1>I got my life back.<br>Then I built <span>AI</span><br>to run it for me.</h1>
+  <div class="sub">Autonomous agents. Real systems. Everything documented so you can build yours.</div>
+  <div class="products">
+    <div class="pill">Blueprint <span class="price">$19</span></div>
+    <div class="pill">Starter Kit <span class="price">$97</span></div>
+    <div class="pill">Done For You <span class="price">$497</span></div>
+  </div>
+</div>
+
+<div class="right">
+  <div class="card">
+    <div class="card-title">// Active Agents</div>
+    <div class="agent"><div class="dot-g"></div><div class="agent-name">Commander</div><div class="agent-task">Orchestrating ops</div></div>
+    <div class="agent"><div class="dot-g"></div><div class="agent-name">TradingBot</div><div class="agent-task">Scanning markets</div></div>
+    <div class="agent"><div class="dot-g"></div><div class="agent-name">Creative</div><div class="agent-task">Posting content</div></div>
+    <div class="agent"><div class="dot-g"></div><div class="agent-name">Analyst</div><div class="agent-task">Tracking revenue</div></div>
+    <div class="agent"><div class="dot-g"></div><div class="agent-name">Sentinel</div><div class="agent-task">All systems OK</div></div>
+  </div>
+</div>
+
+<div class="domain"><span>mimibuildsai</span>.com</div>
+</body>
+</html>
