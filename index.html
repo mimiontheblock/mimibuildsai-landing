@@ -492,35 +492,249 @@
                 <div class="preview-dot g"></div>
                 <div class="preview-url">spark-os.local — Command Center</div>
             </div>
-            <div style="width:100%;height:100%;background:#0a0a0f;display:flex;flex-direction:column;padding:20px;gap:12px;overflow:hidden;">
-                <div style="display:flex;gap:12px;">
-                    <div style="flex:1;background:#12121f;border:1px solid #1e1e35;border-radius:8px;padding:16px;">
-                        <div style="font-size:9px;color:#4a4a6a;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Revenue — Feb 2026</div>
-                        <div style="font-size:28px;font-weight:800;color:#00e676;font-family:'JetBrains Mono',monospace;">€24,067</div>
-                        <div style="font-size:9px;color:#4a4a6a;margin-top:4px;">↑ Groomers & Ballers + Elite Ballers</div>
-                    </div>
-                    <div style="flex:1;background:#12121f;border:1px solid #1e1e35;border-radius:8px;padding:16px;">
-                        <div style="font-size:9px;color:#4a4a6a;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">AI Revenue Target</div>
-                        <div style="font-size:28px;font-weight:800;color:#00e5ff;font-family:'JetBrains Mono',monospace;">$19</div>
-                        <div style="height:4px;background:#1e1e35;border-radius:2px;margin-top:8px;"><div style="width:2%;height:100%;background:#00e5ff;border-radius:2px;"></div></div>
-                        <div style="font-size:9px;color:#4a4a6a;margin-top:4px;">Target: $10,000/mo</div>
-                    </div>
-                </div>
-                <div style="background:#12121f;border:1px solid #1e1e35;border-radius:8px;padding:16px;">
-                    <div style="font-size:9px;color:#4a4a6a;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Active Agents</div>
-                    <div style="display:flex;flex-direction:column;gap:6px;">
-                        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#00e676;font-size:8px;">●</span><span style="font-size:10px;color:#e8eaf6;font-family:'JetBrains Mono',monospace;">Claw</span><span style="font-size:9px;color:#4a4a6a;">— Orchestrator · Managing operations</span></div>
-                        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#00e676;font-size:8px;">●</span><span style="font-size:10px;color:#e8eaf6;font-family:'JetBrains Mono',monospace;">Kalshi</span><span style="font-size:9px;color:#4a4a6a;">— Trading · Collecting BTC ticks</span></div>
-                        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#00e676;font-size:8px;">●</span><span style="font-size:10px;color:#e8eaf6;font-family:'JetBrains Mono',monospace;">Pixel</span><span style="font-size:9px;color:#4a4a6a;">— Creative · Managing @mimibuildsai</span></div>
-                        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#ffd600;font-size:8px;">●</span><span style="font-size:10px;color:#e8eaf6;font-family:'JetBrains Mono',monospace;">EdgeHunter</span><span style="font-size:9px;color:#4a4a6a;">— Paused · Awaiting edge proof</span></div>
+            <!-- SPARK OS INTERACTIVE MOCKUP -->
+            <div id="spark-mockup" style="width:100%;background:#07070f;font-family:'JetBrains Mono',monospace;min-height:460px;display:flex;flex-direction:column;">
+
+                <!-- Tab bar -->
+                <div style="display:flex;border-bottom:1px solid #141430;background:#09091a;">
+                    <div class="spark-tab active-tab" data-tab="overview" onclick="switchTab('overview')" style="padding:10px 20px;font-size:10px;cursor:pointer;letter-spacing:1px;color:#00e5ff;border-bottom:2px solid #00e5ff;">OVERVIEW</div>
+                    <div class="spark-tab" data-tab="agents" onclick="switchTab('agents')" style="padding:10px 20px;font-size:10px;cursor:pointer;letter-spacing:1px;color:#4a4a6a;border-bottom:2px solid transparent;">AGENTS</div>
+                    <div class="spark-tab" data-tab="revenue" onclick="switchTab('revenue')" style="padding:10px 20px;font-size:10px;cursor:pointer;letter-spacing:1px;color:#4a4a6a;border-bottom:2px solid transparent;">REVENUE</div>
+                    <div class="spark-tab" data-tab="trading" onclick="switchTab('trading')" style="padding:10px 20px;font-size:10px;cursor:pointer;letter-spacing:1px;color:#4a4a6a;border-bottom:2px solid transparent;">TRADING</div>
+                    <div style="margin-left:auto;padding:10px 16px;display:flex;align-items:center;gap:6px;">
+                        <div style="width:6px;height:6px;border-radius:50%;background:#00e676;animation:pulse 2s infinite;"></div>
+                        <span style="font-size:9px;color:#00e676;letter-spacing:1px;">LIVE</span>
                     </div>
                 </div>
-                <div style="background:#12121f;border:1px solid #00e676;border-radius:8px;padding:12px;display:flex;align-items:center;gap:10px;">
-                    <div style="width:8px;height:8px;border-radius:50%;background:#00e676;animation:pulse 2s infinite;"></div>
-                    <span style="font-size:10px;color:#00e676;font-family:'JetBrains Mono',monospace;">All systems operational · Spark OS v2.0</span>
+
+                <!-- OVERVIEW TAB -->
+                <div id="tab-overview" class="spark-tab-content" style="display:flex;flex-direction:column;gap:12px;padding:16px;flex:1;">
+                    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:14px;border-top:2px solid #00e676;">
+                            <div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Monthly Revenue</div>
+                            <div style="font-size:26px;font-weight:800;color:#00e676;" id="mock-rev">$47,200</div>
+                            <div style="font-size:9px;color:#00e676;margin-top:4px;">↑ 34% vs last month</div>
+                        </div>
+                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:14px;border-top:2px solid #00e5ff;">
+                            <div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">AI Income</div>
+                            <div style="font-size:26px;font-weight:800;color:#00e5ff;" id="mock-ai">$12,840</div>
+                            <div style="font-size:9px;color:#4a4a6a;margin-top:4px;">Products + trading</div>
+                        </div>
+                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:14px;border-top:2px solid #a855f7;">
+                            <div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Tasks Automated</div>
+                            <div style="font-size:26px;font-weight:800;color:#a855f7;" id="mock-tasks">2,847</div>
+                            <div style="font-size:9px;color:#4a4a6a;margin-top:4px;">This month</div>
+                        </div>
+                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:14px;border-top:2px solid #ffd600;">
+                            <div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Hours Saved</div>
+                            <div style="font-size:26px;font-weight:800;color:#ffd600;">127h</div>
+                            <div style="font-size:9px;color:#4a4a6a;margin-top:4px;">This month</div>
+                        </div>
+                    </div>
+                    <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:14px;">
+                        <div style="font-size:8px;color:#4a4a6a;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;">System Activity Feed</div>
+                        <div id="mock-feed" style="display:flex;flex-direction:column;gap:6px;"></div>
+                    </div>
+                    <div style="background:#0d0d20;border:1px solid #00e676;border-radius:8px;padding:10px;display:flex;align-items:center;gap:8px;">
+                        <div style="width:7px;height:7px;border-radius:50%;background:#00e676;animation:pulse 2s infinite;flex-shrink:0;"></div>
+                        <span style="font-size:10px;color:#00e676;">All 6 agents operational · Spark OS v2.0 · Last sync: just now</span>
+                    </div>
                 </div>
+
+                <!-- AGENTS TAB -->
+                <div id="tab-agents" class="spark-tab-content" style="display:none;padding:16px;display:none;flex-direction:column;gap:8px;">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-left:3px solid #00e5ff;">
+                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                                <span style="font-size:12px;font-weight:700;color:#e8eaf6;">🔱 Commander</span>
+                                <span style="font-size:8px;color:#00e676;background:rgba(0,230,118,.1);padding:2px 7px;border-radius:10px;">● Online</span>
+                            </div>
+                            <div style="font-size:9px;color:#4a4a6a;">Orchestrator · Routes all tasks · Strategy & execution</div>
+                            <div style="font-size:9px;color:#00e5ff;margin-top:6px;">→ Managing 5 agents · Processing 14 tasks</div>
+                        </div>
+                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-left:3px solid #ffd600;">
+                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                                <span style="font-size:12px;font-weight:700;color:#e8eaf6;">⚡ TradingBot</span>
+                                <span style="font-size:8px;color:#00e676;background:rgba(0,230,118,.1);padding:2px 7px;border-radius:10px;">● Active</span>
+                            </div>
+                            <div style="font-size:9px;color:#4a4a6a;">Market arbitrage · Live scanning · Auto-execution</div>
+                            <div style="font-size:9px;color:#ffd600;margin-top:6px;">→ $3,240 profit this month · 847 trades</div>
+                        </div>
+                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-left:3px solid #ff9100;">
+                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                                <span style="font-size:12px;font-weight:700;color:#e8eaf6;">🎨 Creative</span>
+                                <span style="font-size:8px;color:#00e676;background:rgba(0,230,118,.1);padding:2px 7px;border-radius:10px;">● Active</span>
+                            </div>
+                            <div style="font-size:9px;color:#4a4a6a;">Content · Social media · Brand management</div>
+                            <div style="font-size:9px;color:#ff9100;margin-top:6px;">→ 340 posts scheduled · 3 brands managed</div>
+                        </div>
+                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-left:3px solid #00e676;">
+                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                                <span style="font-size:12px;font-weight:700;color:#e8eaf6;">📊 Analyst</span>
+                                <span style="font-size:8px;color:#00e676;background:rgba(0,230,118,.1);padding:2px 7px;border-radius:10px;">● Active</span>
+                            </div>
+                            <div style="font-size:9px;color:#4a4a6a;">Finance · Revenue tracking · Expense monitoring</div>
+                            <div style="font-size:9px;color:#00e676;margin-top:6px;">→ All accounts reconciled · Tax docs ready</div>
+                        </div>
+                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-left:3px solid #a855f7;">
+                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                                <span style="font-size:12px;font-weight:700;color:#e8eaf6;">🛡️ Sentinel</span>
+                                <span style="font-size:8px;color:#00e676;background:rgba(0,230,118,.1);padding:2px 7px;border-radius:10px;">● Active</span>
+                            </div>
+                            <div style="font-size:9px;color:#4a4a6a;">Security · Health monitoring · Alerts</div>
+                            <div style="font-size:9px;color:#a855f7;margin-top:6px;">→ All systems nominal · 0 alerts</div>
+                        </div>
+                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-left:3px solid #448aff;">
+                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                                <span style="font-size:12px;font-weight:700;color:#e8eaf6;">🤖 OpsBot</span>
+                                <span style="font-size:8px;color:#00e676;background:rgba(0,230,118,.1);padding:2px 7px;border-radius:10px;">● Active</span>
+                            </div>
+                            <div style="font-size:9px;color:#4a4a6a;">Operations · Scheduling · Team management</div>
+                            <div style="font-size:9px;color:#448aff;margin-top:6px;">→ 6 staff managed · Payroll automated</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- REVENUE TAB -->
+                <div id="tab-revenue" class="spark-tab-content" style="display:none;padding:16px;flex-direction:column;gap:10px;">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:4px;">
+                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:14px;">
+                            <div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">Revenue Streams</div>
+                            <div style="display:flex;flex-direction:column;gap:8px;">
+                                <div style="display:flex;justify-content:space-between;align-items:center;">
+                                    <span style="font-size:10px;color:#e8eaf6;">Digital Products</span>
+                                    <span style="font-size:11px;font-weight:700;color:#00e676;">$9,600</span>
+                                </div>
+                                <div style="height:3px;background:#1a1a3a;border-radius:2px;"><div style="width:74%;height:100%;background:#00e676;border-radius:2px;"></div></div>
+                                <div style="display:flex;justify-content:space-between;align-items:center;">
+                                    <span style="font-size:10px;color:#e8eaf6;">Trading Profits</span>
+                                    <span style="font-size:11px;font-weight:700;color:#ffd600;">$3,240</span>
+                                </div>
+                                <div style="height:3px;background:#1a1a3a;border-radius:2px;"><div style="width:25%;height:100%;background:#ffd600;border-radius:2px;"></div></div>
+                                <div style="display:flex;justify-content:space-between;align-items:center;">
+                                    <span style="font-size:10px;color:#e8eaf6;">Consulting / DFY</span>
+                                    <span style="font-size:11px;font-weight:700;color:#00e5ff;">$5,400</span>
+                                </div>
+                                <div style="height:3px;background:#1a1a3a;border-radius:2px;"><div style="width:42%;height:100%;background:#00e5ff;border-radius:2px;"></div></div>
+                            </div>
+                        </div>
+                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:14px;">
+                            <div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">AI Income vs Target</div>
+                            <div style="font-size:32px;font-weight:800;color:#00e5ff;margin-bottom:4px;">$12,840</div>
+                            <div style="font-size:9px;color:#4a4a6a;margin-bottom:8px;">Target: $15,000/mo</div>
+                            <div style="height:6px;background:#1a1a3a;border-radius:3px;"><div style="width:86%;height:100%;background:linear-gradient(90deg,#00e5ff,#a855f7);border-radius:3px;"></div></div>
+                            <div style="font-size:9px;color:#00e5ff;margin-top:6px;">86% of target ↑</div>
+                        </div>
+                    </div>
+                    <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:14px;">
+                        <div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">Recent Transactions</div>
+                        <div style="display:flex;flex-direction:column;gap:6px;">
+                            <div style="display:flex;justify-content:space-between;font-size:10px;padding:6px 0;border-bottom:1px solid #141430;"><span style="color:#e8eaf6;">AI Starter Kit sale</span><span style="color:#00e676;">+$97</span></div>
+                            <div style="display:flex;justify-content:space-between;font-size:10px;padding:6px 0;border-bottom:1px solid #141430;"><span style="color:#e8eaf6;">Done-For-You build</span><span style="color:#00e676;">+$497</span></div>
+                            <div style="display:flex;justify-content:space-between;font-size:10px;padding:6px 0;border-bottom:1px solid #141430;"><span style="color:#e8eaf6;">Arb trade settled</span><span style="color:#ffd600;">+$12.40</span></div>
+                            <div style="display:flex;justify-content:space-between;font-size:10px;padding:6px 0;"><span style="color:#e8eaf6;">AI Agent Blueprint × 3</span><span style="color:#00e676;">+$57</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TRADING TAB -->
+                <div id="tab-trading" class="spark-tab-content" style="display:none;padding:16px;flex-direction:column;gap:10px;">
+                    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-top:2px solid #ffd600;"><div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Total Profit</div><div style="font-size:22px;font-weight:800;color:#ffd600;">$3,240</div></div>
+                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-top:2px solid #00e5ff;"><div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Total Trades</div><div style="font-size:22px;font-weight:800;color:#00e5ff;">847</div></div>
+                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-top:2px solid #00e676;"><div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Win Rate</div><div style="font-size:22px;font-weight:800;color:#00e676;">91%</div></div>
+                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-top:2px solid #a855f7;"><div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Avg Spread</div><div style="font-size:22px;font-weight:800;color:#a855f7;">2.4%</div></div>
+                    </div>
+                    <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:14px;">
+                        <div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">Live Trade Feed</div>
+                        <div style="display:grid;grid-template-columns:80px 1fr 70px 70px;gap:8px;font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid #141430;">
+                            <span>Time</span><span>Market</span><span>Spread</span><span>Profit</span>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:4px;" id="mock-trades"></div>
+                    </div>
+                </div>
+
             </div>
         </div>
+
+        <style>
+        .spark-tab:hover { color: #e8eaf6 !important; }
+        @keyframes fadeTab { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+        .spark-tab-content { animation: fadeTab .2s ease; }
+        </style>
+
+        <script>
+        function switchTab(name) {
+            document.querySelectorAll('.spark-tab-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.spark-tab').forEach(el => {
+                el.style.color = '#4a4a6a';
+                el.style.borderBottom = '2px solid transparent';
+            });
+            const content = document.getElementById('tab-' + name);
+            content.style.display = 'flex';
+            const tab = document.querySelector('[data-tab="' + name + '"]');
+            tab.style.color = '#00e5ff';
+            tab.style.borderBottom = '2px solid #00e5ff';
+            if(name === 'trading') renderTrades();
+        }
+
+        const feedItems = [
+            { color:'#00e676', text:'Arb trade executed · BTC 5-min · +$3.80' },
+            { color:'#00e5ff', text:'New product sale · AI Starter Kit · +$97' },
+            { color:'#a855f7', text:'Commander: 47 emails processed · 3 flagged' },
+            { color:'#ff9100', text:'Creative: 12 posts scheduled across 3 brands' },
+            { color:'#ffd600', text:'Trading: Spread detected 2.1% · Executing...' },
+            { color:'#00e676', text:'Payroll calculated · 6 staff · All correct' },
+            { color:'#00e5ff', text:'Blueprint sale × 2 · +$38' },
+            { color:'#a855f7', text:'Sentinel: All systems nominal' },
+        ];
+        let feedIdx = 0;
+        function tickFeed() {
+            const feed = document.getElementById('mock-feed');
+            if(!feed) return;
+            const item = feedItems[feedIdx % feedItems.length];
+            const row = document.createElement('div');
+            row.style.cssText = 'display:flex;align-items:center;gap:8px;font-size:10px;padding:4px 0;animation:fadeTab .3s ease';
+            row.innerHTML = `<span style="color:${item.color};font-size:8px;">●</span><span style="color:#4a4a6a;font-size:9px;">${new Date().toLocaleTimeString()}</span><span style="color:#c8cae6;">${item.text}</span>`;
+            feed.insertBefore(row, feed.firstChild);
+            if(feed.children.length > 5) feed.removeChild(feed.lastChild);
+            feedIdx++;
+        }
+
+        // Tick numbers
+        function tickNumbers() {
+            const rev = document.getElementById('mock-rev');
+            const ai = document.getElementById('mock-ai');
+            const tasks = document.getElementById('mock-tasks');
+            if(rev) { let v = parseInt(rev.textContent.replace(/[$,]/g,'')); rev.textContent = '$' + (v + Math.floor(Math.random()*3)).toLocaleString(); }
+            if(tasks) { let v = parseInt(tasks.textContent.replace(/,/g,'')); tasks.textContent = (v + Math.floor(Math.random()*2)).toLocaleString(); }
+        }
+
+        const mockTrades = [
+            ['09:14:22','BTC 5-min YES/NO','2.3%','+$2.88'],
+            ['09:12:07','BTC 5-min YES/NO','1.8%','+$2.25'],
+            ['09:09:55','BTC 5-min YES/NO','3.1%','+$3.88'],
+            ['09:07:33','BTC 5-min YES/NO','2.0%','+$2.50'],
+            ['09:04:11','BTC 5-min YES/NO','1.6%','+$2.00'],
+        ];
+        function renderTrades() {
+            const el = document.getElementById('mock-trades');
+            if(!el||el.children.length) return;
+            mockTrades.forEach(([t,m,s,p]) => {
+                el.innerHTML += `<div style="display:grid;grid-template-columns:80px 1fr 70px 70px;gap:8px;font-size:10px;padding:5px 0;border-bottom:1px solid #0f0f25;align-items:center;">
+                    <span style="color:#4a4a6a">${t}</span>
+                    <span style="color:#c8cae6">${m}</span>
+                    <span style="background:rgba(0,230,118,.08);border:1px solid rgba(0,230,118,.2);color:#00e676;padding:1px 6px;border-radius:3px;font-size:9px;text-align:center;">${s}</span>
+                    <span style="color:#00e676;font-weight:700">${p}</span>
+                </div>`;
+            });
+        }
+
+        // Init
+        tickFeed();
+        setInterval(tickFeed, 3000);
+        setInterval(tickNumbers, 2500);
+        </script>
     </section>
 
     <!-- PRODUCTS -->
