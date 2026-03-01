@@ -3,76 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mimibuildsai — AI Systems That Run Your Business on Autopilot</title>
-    <meta name="description" content="Mimi builds AI systems that automate businesses. Get the AI Agent Blueprint ($19), AI Starter Kit ($97), or a Done-For-You AI build for your business ($497).">
-    <meta name="keywords" content="AI automation for business, build AI agents, AI operating system, automate your business with AI, AI starter kit, done for you AI, mimibuildsai">
-    <meta name="author" content="Mimi — mimibuildsai">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://mimibuildsai.com">
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mimibuildsai.com">
-    <meta property="og:title" content="mimibuildsai — AI Systems That Run Your Business on Autopilot">
-    <meta property="og:description" content="I run multiple businesses. AI runs them for me. Get the blueprint, the tools, or let me build it for you.">
-    <meta property="og:image" content="https://mimibuildsai.com/og-image.jpg">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@mimibuildsai">
-    <meta name="twitter:title" content="mimibuildsai — AI Systems That Run Your Business">
-    <meta name="twitter:description" content="I build AI agents that automate business operations. Blueprint $19 · Starter Kit $97 · Done-For-You $497">
-    <meta name="twitter:image" content="https://mimibuildsai.com/og-image.jpg">
-
-    <!-- Schema.org structured data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Mimi",
-        "url": "https://mimibuildsai.com",
-        "sameAs": [
-            "https://x.com/mimibuildsai",
-            "https://instagram.com/mimibuildsai",
-            "https://mimibuildsai.gumroad.com"
-        ],
-        "jobTitle": "AI Systems Builder",
-        "description": "Builds AI agents and operating systems that automate business operations. Creator of Spark OS."
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "name": "mimibuildsai Products",
-        "itemListElement": [
-            {
-                "@type": "Product",
-                "position": 1,
-                "name": "AI Agent Blueprint",
-                "description": "Step-by-step guide to building your first AI agent. No coding required.",
-                "url": "https://mimibuildsai.gumroad.com/l/howtobuildai",
-                "offers": { "@type": "Offer", "price": "19", "priceCurrency": "USD" }
-            },
-            {
-                "@type": "Product",
-                "position": 2,
-                "name": "AI Starter Kit",
-                "description": "Complete toolkit to build your first AI agent in a day. Templates, tools, and the exact stack used by mimibuildsai.",
-                "url": "https://mimibuildsai.gumroad.com/l/aistarterkit",
-                "offers": { "@type": "Offer", "price": "97", "priceCurrency": "USD" }
-            },
-            {
-                "@type": "Product",
-                "position": 3,
-                "name": "Done-For-You AI Build",
-                "description": "Custom AI system built for your business by mimibuildsai.",
-                "url": "https://mimibuildsai.gumroad.com/l/aiforyou",
-                "offers": { "@type": "Offer", "price": "497", "priceCurrency": "USD" }
-            }
-        ]
-    }
-    </script>
+    <title>mimibuildsai — AI Systems That Run Your Business</title>
+    <meta name="description" content="I run 6 businesses. AI runs them for me. Get the blueprint, the tools, or let me build it for you.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -232,9 +164,23 @@
             font-size: 10px; font-weight: 700; text-transform: uppercase;
             letter-spacing: 1px; margin-bottom: 16px;
         }
+        .tag-free { background: rgba(0,230,118,0.12); color: var(--green); }
         .tag-starter { background: rgba(0,229,255,0.1); color: var(--cyan); }
+        .tag-tools { background: rgba(0,229,255,0.08); color: var(--cyan); }
         .tag-popular { background: rgba(168,85,247,0.1); color: var(--purple); }
         .tag-premium { background: rgba(255,214,0,0.1); color: var(--yellow); }
+        .product-card.free-card {
+            border-color: rgba(0,230,118,0.25);
+            background: linear-gradient(135deg, rgba(0,230,118,0.04), rgba(0,229,255,0.02));
+        }
+        .product-card.free-card::before {
+            background: linear-gradient(90deg, transparent, var(--green), transparent);
+            opacity: 0.5;
+        }
+        .free-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px; font-weight: 700; color: var(--green); margin-bottom: 16px;
+        }
         .product-name { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
         .product-price {
             font-family: 'JetBrains Mono', monospace;
@@ -356,6 +302,74 @@
         }
         .socials a:hover { color: var(--cyan); }
 
+        /* DASHBOARD MOCK NAV */
+        .dm-nav { display: flex; gap: 4px; margin-bottom: 14px; padding: 0 4px; }
+        .dm-nav-pill {
+            font-size: 9px; padding: 5px 14px; border-radius: 20px;
+            color: #4a4a6a; cursor: pointer; text-transform: uppercase;
+            letter-spacing: 1px; transition: all 0.3s; font-family: 'JetBrains Mono', monospace;
+        }
+        .dm-nav-pill:hover { color: #00e5ff; }
+        .dm-nav-pill.active { background: rgba(0,229,255,0.08); color: #00e5ff; }
+        .dm-agent-detail { font-size: 9px; color: #6b6b8a; margin: 6px 0 10px; line-height: 1.5; }
+        .dm-stat-row {
+            display: flex; justify-content: space-between; font-size: 9px;
+            padding: 4px 0; border-bottom: 1px solid #12122a; color: #e8eaf6;
+        }
+
+        /* DASHBOARD MOCK */
+        .dash-mock {
+            background: #030308; padding: 16px; min-height: 420px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .dm-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 14px; border-bottom: 1px solid #12122a; margin-bottom: 14px;
+        }
+        .dm-pill {
+            font-size: 8px; padding: 4px 12px; border-radius: 20px;
+            color: #4a4a6a; cursor: default; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .dm-pill.active { background: rgba(0,229,255,0.08); color: #00e5ff; }
+        .dm-grid {
+            display: grid; grid-template-columns: 1.2fr 1fr 0.8fr; gap: 10px;
+        }
+        .dm-card {
+            background: #0a0a18; border: 1px solid #12122a; border-radius: 8px;
+            padding: 12px; position: relative; overflow: hidden;
+        }
+        .dm-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, #00e5ff, transparent); opacity: 0.2;
+        }
+        .dm-wide { }
+        .dm-label { font-size: 7px; color: #4a4a6a; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2px; }
+        .dm-title { font-size: 11px; font-weight: 600; color: #e8eaf6; margin-bottom: 8px; }
+        .dm-agent {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 5px 8px; margin: 3px 0; background: rgba(255,255,255,0.01);
+            border: 1px solid #12122a; border-radius: 5px; font-size: 10px; color: #e8eaf6;
+        }
+        .dm-status { font-size: 7px; padding: 2px 6px; border-radius: 10px; color: #4a4a6a; }
+        .dm-status.on { background: rgba(0,230,118,0.1); color: #00e676; }
+        .dm-status.bld { background: rgba(0,229,255,0.1); color: #00e5ff; }
+        .dm-rev-bar { height: 4px; background: #12122a; border-radius: 2px; margin: 8px 0; }
+        .dm-rev-fill { height: 100%; width: 65%; background: linear-gradient(90deg, #00e676, #00e5ff); border-radius: 2px; }
+        .dm-gumroad {
+            padding: 6px 8px; background: rgba(0,230,118,0.04); border: 1px solid rgba(0,230,118,0.1);
+            border-radius: 4px; margin-top: 6px;
+        }
+        .dm-biz { font-size: 9px; color: #6b6b8a; padding: 3px 0; display: flex; justify-content: space-between; }
+        .dm-pri { font-size: 9px; color: #e8eaf6; padding: 6px 0; border-bottom: 1px solid #12122a; display: flex; align-items: center; gap: 8px; }
+        .dm-p0 { font-size: 8px; padding: 2px 6px; border-radius: 3px; background: rgba(255,61,87,0.15); color: #ff3d57; font-weight: 700; }
+        .dm-p1 { font-size: 8px; padding: 2px 6px; border-radius: 3px; background: rgba(0,229,255,0.1); color: #00e5ff; font-weight: 700; }
+        .dm-p2 { font-size: 8px; padding: 2px 6px; border-radius: 3px; background: rgba(0,230,118,0.1); color: #00e676; font-weight: 700; }
+        .dm-p3 { font-size: 8px; padding: 2px 6px; border-radius: 3px; background: rgba(168,85,247,0.1); color: #a855f7; font-weight: 700; }
+
+        @media (max-width: 768px) {
+            .dm-grid { grid-template-columns: 1fr; }
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
             nav { padding: 12px 20px; }
@@ -373,7 +387,7 @@
     <!-- NAV -->
     <nav>
         <div class="logo">mimi<span>builds</span>ai</div>
-        <a href="#products" class="nav-cta">Get the Blueprint →</a>
+        <a href="https://mimibuildsai.gumroad.com/l/ai-income-guide-free" class="nav-cta">🎁 Free Guide →</a>
     </nav>
 
     <!-- HERO -->
@@ -388,8 +402,8 @@
                 Now I'm giving you the exact blueprint.
             </p>
             <div class="hero-ctas">
-                <a href="#products" class="btn-primary">See the Products →</a>
-                <a href="#story" class="btn-secondary">Read My Story</a>
+                <a href="https://mimibuildsai.gumroad.com/l/ai-income-guide-free" class="btn-primary">🎁 Get the Free Guide ⚡</a>
+                <a href="#products" class="btn-secondary">See All Products →</a>
             </div>
         </div>
     </div>
@@ -420,14 +434,14 @@
         <div class="section-title">I was drowning. Then I built a system.</div>
         <div class="story">
             <p>
-                I run a premium salon empire in Spain — multiple locations, an education academy,
-                a content studio, and a retail store. All with my partner. All while managing
-                operations from home.
+                I run 6 companies — a premium service empire, an education academy,
+                a content studio, a retail brand, and an AI tech company. All with my partner.
+                All while managing operations from my couch in Spain.
             </p>
             <p>
-                Payroll with commission splits. Booking management across locations.
-                Tax compliance for multiple entities. Content for 7 Instagram accounts.
-                Revenue tracking. Team management. <strong>All of it was manual.</strong>
+                Commission-based payroll across teams. Revenue tracking for 6 entities.
+                Tax compliance. Content for 7 social media accounts. Client management.
+                Team scheduling. <strong>All of it was manual. I was losing my mind.</strong>
             </p>
             <p>
                 I was working 14-hour days and still falling behind. Then I started building
@@ -484,7 +498,7 @@
             </div>
         </div>
 
-        <!-- Dashboard Preview -->
+        <!-- Dashboard Preview — Static Mock -->
         <div class="preview-container">
             <div class="preview-bar">
                 <div class="preview-dot r"></div>
@@ -492,249 +506,146 @@
                 <div class="preview-dot g"></div>
                 <div class="preview-url">spark-os.local — Command Center</div>
             </div>
-            <!-- SPARK OS INTERACTIVE MOCKUP -->
-            <div id="spark-mockup" style="width:100%;background:#07070f;font-family:'JetBrains Mono',monospace;min-height:460px;display:flex;flex-direction:column;">
-
-                <!-- Tab bar -->
-                <div style="display:flex;border-bottom:1px solid #141430;background:#09091a;">
-                    <div class="spark-tab active-tab" data-tab="overview" onclick="switchTab('overview')" style="padding:10px 20px;font-size:10px;cursor:pointer;letter-spacing:1px;color:#00e5ff;border-bottom:2px solid #00e5ff;">OVERVIEW</div>
-                    <div class="spark-tab" data-tab="agents" onclick="switchTab('agents')" style="padding:10px 20px;font-size:10px;cursor:pointer;letter-spacing:1px;color:#4a4a6a;border-bottom:2px solid transparent;">AGENTS</div>
-                    <div class="spark-tab" data-tab="revenue" onclick="switchTab('revenue')" style="padding:10px 20px;font-size:10px;cursor:pointer;letter-spacing:1px;color:#4a4a6a;border-bottom:2px solid transparent;">REVENUE</div>
-                    <div class="spark-tab" data-tab="trading" onclick="switchTab('trading')" style="padding:10px 20px;font-size:10px;cursor:pointer;letter-spacing:1px;color:#4a4a6a;border-bottom:2px solid transparent;">TRADING</div>
-                    <div style="margin-left:auto;padding:10px 16px;display:flex;align-items:center;gap:6px;">
-                        <div style="width:6px;height:6px;border-radius:50%;background:#00e676;animation:pulse 2s infinite;"></div>
-                        <span style="font-size:9px;color:#00e676;letter-spacing:1px;">LIVE</span>
+            <div class="dash-mock">
+                <div class="dm-header">
+                    <div style="display:flex;align-items:center;gap:12px;">
+                        <span style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;background:linear-gradient(135deg,#00e5ff,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">SPARK OS</span>
+                        <span class="dm-pill active">Dashboard</span>
+                        <span class="dm-pill">Agents</span>
+                        <span class="dm-pill">Finance</span>
+                        <span class="dm-pill">Projects</span>
                     </div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:18px;color:#00e5ff;">14:32:07</div>
                 </div>
-
-                <!-- OVERVIEW TAB -->
-                <div id="tab-overview" class="spark-tab-content" style="display:flex;flex-direction:column;gap:12px;padding:16px;flex:1;">
-                    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
-                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:14px;border-top:2px solid #00e676;">
-                            <div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Monthly Revenue</div>
-                            <div style="font-size:26px;font-weight:800;color:#00e676;" id="mock-rev">$47,200</div>
-                            <div style="font-size:9px;color:#00e676;margin-top:4px;">↑ 34% vs last month</div>
-                        </div>
-                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:14px;border-top:2px solid #00e5ff;">
-                            <div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">AI Income</div>
-                            <div style="font-size:26px;font-weight:800;color:#00e5ff;" id="mock-ai">$12,840</div>
-                            <div style="font-size:9px;color:#4a4a6a;margin-top:4px;">Products + trading</div>
-                        </div>
-                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:14px;border-top:2px solid #a855f7;">
-                            <div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Tasks Automated</div>
-                            <div style="font-size:26px;font-weight:800;color:#a855f7;" id="mock-tasks">2,847</div>
-                            <div style="font-size:9px;color:#4a4a6a;margin-top:4px;">This month</div>
-                        </div>
-                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:14px;border-top:2px solid #ffd600;">
-                            <div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Hours Saved</div>
-                            <div style="font-size:26px;font-weight:800;color:#ffd600;">127h</div>
-                            <div style="font-size:9px;color:#4a4a6a;margin-top:4px;">This month</div>
-                        </div>
-                    </div>
-                    <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:14px;">
-                        <div style="font-size:8px;color:#4a4a6a;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;">System Activity Feed</div>
-                        <div id="mock-feed" style="display:flex;flex-direction:column;gap:6px;"></div>
-                    </div>
-                    <div style="background:#0d0d20;border:1px solid #00e676;border-radius:8px;padding:10px;display:flex;align-items:center;gap:8px;">
-                        <div style="width:7px;height:7px;border-radius:50%;background:#00e676;animation:pulse 2s infinite;flex-shrink:0;"></div>
-                        <span style="font-size:10px;color:#00e676;">All 6 agents operational · Spark OS v2.0 · Last sync: just now</span>
-                    </div>
+                <!-- Nav pills inside mock -->
+                <div class="dm-nav">
+                    <span class="dm-nav-pill active" onclick="showDmTab('dashboard')">Dashboard</span>
+                    <span class="dm-nav-pill" onclick="showDmTab('agents')">Agents</span>
+                    <span class="dm-nav-pill" onclick="showDmTab('finance')">Finance</span>
+                    <span class="dm-nav-pill" onclick="showDmTab('projects')">Projects</span>
                 </div>
-
-                <!-- AGENTS TAB -->
-                <div id="tab-agents" class="spark-tab-content" style="display:none;padding:16px;display:none;flex-direction:column;gap:8px;">
-                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-left:3px solid #00e5ff;">
-                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-                                <span style="font-size:12px;font-weight:700;color:#e8eaf6;">🔱 Commander</span>
-                                <span style="font-size:8px;color:#00e676;background:rgba(0,230,118,.1);padding:2px 7px;border-radius:10px;">● Online</span>
-                            </div>
-                            <div style="font-size:9px;color:#4a4a6a;">Orchestrator · Routes all tasks · Strategy & execution</div>
-                            <div style="font-size:9px;color:#00e5ff;margin-top:6px;">→ Managing 5 agents · Processing 14 tasks</div>
+                <!-- Dashboard tab -->
+                <div class="dm-tab" id="dm-dashboard">
+                    <div class="dm-grid">
+                        <div class="dm-card dm-wide">
+                            <div class="dm-label">// Agent Network</div>
+                            <div class="dm-title">Active Agents</div>
+                            <div class="dm-agent"><span>🔱 Orchestrator</span><span class="dm-status on">● Online</span></div>
+                            <div class="dm-agent"><span>📊 Trading Engine</span><span class="dm-status on">● Running</span></div>
+                            <div class="dm-agent"><span>🎨 Content Director</span><span class="dm-status on">● Active</span></div>
+                            <div class="dm-agent"><span>🏛️ Finance Agent</span><span class="dm-status bld">● Syncing</span></div>
+                            <div class="dm-agent"><span>👔 Operations</span><span class="dm-status on">● Online</span></div>
+                            <div class="dm-agent"><span>🎰 Signal Sniper</span><span class="dm-status bld">● Scanning</span></div>
+                            <div class="dm-agent"><span>🛡️ Security</span><span class="dm-status on">● Watching</span></div>
                         </div>
-                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-left:3px solid #ffd600;">
-                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-                                <span style="font-size:12px;font-weight:700;color:#e8eaf6;">⚡ TradingBot</span>
-                                <span style="font-size:8px;color:#00e676;background:rgba(0,230,118,.1);padding:2px 7px;border-radius:10px;">● Active</span>
+                        <div class="dm-card">
+                            <div class="dm-label">// Revenue Command</div>
+                            <div class="dm-title">💰 Revenue Tracker</div>
+                            <div style="font-size:28px;font-weight:800;color:#00e676;margin:8px 0;font-family:'JetBrains Mono',monospace;">€147,830</div>
+                            <div style="font-size:9px;color:#6b6b8a;">Monthly · All entities combined</div>
+                            <div class="dm-rev-bar"><div class="dm-rev-fill" style="width:82%"></div></div>
+                            <div style="margin-top:10px;">
+                                <div class="dm-biz">🏢 Business Unit A <span style="color:#00e676">€68,420</span></div>
+                                <div class="dm-biz">🎓 Education Division <span style="color:#00e676">€52,100</span></div>
+                                <div class="dm-biz">💻 Digital Products <span style="color:#00e5ff">€18,750</span></div>
+                                <div class="dm-biz">📈 Trading Revenue <span style="color:#a855f7">€8,560</span></div>
                             </div>
-                            <div style="font-size:9px;color:#4a4a6a;">Market arbitrage · Live scanning · Auto-execution</div>
-                            <div style="font-size:9px;color:#ffd600;margin-top:6px;">→ $3,240 profit this month · 847 trades</div>
                         </div>
-                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-left:3px solid #ff9100;">
-                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-                                <span style="font-size:12px;font-weight:700;color:#e8eaf6;">🎨 Creative</span>
-                                <span style="font-size:8px;color:#00e676;background:rgba(0,230,118,.1);padding:2px 7px;border-radius:10px;">● Active</span>
-                            </div>
-                            <div style="font-size:9px;color:#4a4a6a;">Content · Social media · Brand management</div>
-                            <div style="font-size:9px;color:#ff9100;margin-top:6px;">→ 340 posts scheduled · 3 brands managed</div>
-                        </div>
-                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-left:3px solid #00e676;">
-                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-                                <span style="font-size:12px;font-weight:700;color:#e8eaf6;">📊 Analyst</span>
-                                <span style="font-size:8px;color:#00e676;background:rgba(0,230,118,.1);padding:2px 7px;border-radius:10px;">● Active</span>
-                            </div>
-                            <div style="font-size:9px;color:#4a4a6a;">Finance · Revenue tracking · Expense monitoring</div>
-                            <div style="font-size:9px;color:#00e676;margin-top:6px;">→ All accounts reconciled · Tax docs ready</div>
-                        </div>
-                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-left:3px solid #a855f7;">
-                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-                                <span style="font-size:12px;font-weight:700;color:#e8eaf6;">🛡️ Sentinel</span>
-                                <span style="font-size:8px;color:#00e676;background:rgba(0,230,118,.1);padding:2px 7px;border-radius:10px;">● Active</span>
-                            </div>
-                            <div style="font-size:9px;color:#4a4a6a;">Security · Health monitoring · Alerts</div>
-                            <div style="font-size:9px;color:#a855f7;margin-top:6px;">→ All systems nominal · 0 alerts</div>
-                        </div>
-                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-left:3px solid #448aff;">
-                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-                                <span style="font-size:12px;font-weight:700;color:#e8eaf6;">🤖 OpsBot</span>
-                                <span style="font-size:8px;color:#00e676;background:rgba(0,230,118,.1);padding:2px 7px;border-radius:10px;">● Active</span>
-                            </div>
-                            <div style="font-size:9px;color:#4a4a6a;">Operations · Scheduling · Team management</div>
-                            <div style="font-size:9px;color:#448aff;margin-top:6px;">→ 6 staff managed · Payroll automated</div>
+                        <div class="dm-card">
+                            <div class="dm-label">// System Status</div>
+                            <div class="dm-title">🎯 Active Tasks</div>
+                            <div class="dm-pri"><span class="dm-p1">LIVE</span> Revenue sync — all entities</div>
+                            <div class="dm-pri"><span class="dm-p2">LIVE</span> Content pipeline — 12 posts queued</div>
+                            <div class="dm-pri"><span class="dm-p0">ALERT</span> Trading signal detected</div>
+                            <div class="dm-pri"><span class="dm-p3">AUTO</span> Client follow-ups — 8 sent today</div>
                         </div>
                     </div>
                 </div>
-
-                <!-- REVENUE TAB -->
-                <div id="tab-revenue" class="spark-tab-content" style="display:none;padding:16px;flex-direction:column;gap:10px;">
-                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:4px;">
-                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:14px;">
-                            <div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">Revenue Streams</div>
-                            <div style="display:flex;flex-direction:column;gap:8px;">
-                                <div style="display:flex;justify-content:space-between;align-items:center;">
-                                    <span style="font-size:10px;color:#e8eaf6;">Digital Products</span>
-                                    <span style="font-size:11px;font-weight:700;color:#00e676;">$9,600</span>
-                                </div>
-                                <div style="height:3px;background:#1a1a3a;border-radius:2px;"><div style="width:74%;height:100%;background:#00e676;border-radius:2px;"></div></div>
-                                <div style="display:flex;justify-content:space-between;align-items:center;">
-                                    <span style="font-size:10px;color:#e8eaf6;">Trading Profits</span>
-                                    <span style="font-size:11px;font-weight:700;color:#ffd600;">$3,240</span>
-                                </div>
-                                <div style="height:3px;background:#1a1a3a;border-radius:2px;"><div style="width:25%;height:100%;background:#ffd600;border-radius:2px;"></div></div>
-                                <div style="display:flex;justify-content:space-between;align-items:center;">
-                                    <span style="font-size:10px;color:#e8eaf6;">Consulting / DFY</span>
-                                    <span style="font-size:11px;font-weight:700;color:#00e5ff;">$5,400</span>
-                                </div>
-                                <div style="height:3px;background:#1a1a3a;border-radius:2px;"><div style="width:42%;height:100%;background:#00e5ff;border-radius:2px;"></div></div>
+                <!-- Agents tab -->
+                <div class="dm-tab" id="dm-agents" style="display:none;">
+                    <div class="dm-grid" style="grid-template-columns:1fr 1fr;">
+                        <div class="dm-card">
+                            <div class="dm-title">🔱 Orchestrator</div>
+                            <div class="dm-agent-detail">Routes all tasks. Coordinates between agents. Handles strategy calls and voice briefings.</div>
+                            <div class="dm-stat-row"><span>Tasks today:</span><span style="color:#00e676">47</span></div>
+                            <div class="dm-stat-row"><span>Uptime:</span><span style="color:#00e5ff">99.8%</span></div>
+                            <div class="dm-stat-row"><span>Model:</span><span>Claude Opus</span></div>
+                        </div>
+                        <div class="dm-card">
+                            <div class="dm-title">📊 Trading Engine</div>
+                            <div class="dm-agent-detail">Scans markets 24/7. Weather arbitrage on Polymarket. Autonomous position management.</div>
+                            <div class="dm-stat-row"><span>Trades today:</span><span style="color:#00e676">23</span></div>
+                            <div class="dm-stat-row"><span>Win rate:</span><span style="color:#00e676">84%</span></div>
+                            <div class="dm-stat-row"><span>P&L:</span><span style="color:#00e676">+$412</span></div>
+                        </div>
+                        <div class="dm-card">
+                            <div class="dm-title">🎨 Content Director</div>
+                            <div class="dm-agent-detail">Manages content across all platforms. Writes posts, analyzes algorithms, schedules everything.</div>
+                            <div class="dm-stat-row"><span>Posts queued:</span><span style="color:#a855f7">12</span></div>
+                            <div class="dm-stat-row"><span>Platforms:</span><span>X, IG, Reddit</span></div>
+                            <div class="dm-stat-row"><span>Engagement:</span><span style="color:#00e676">+340%</span></div>
+                        </div>
+                        <div class="dm-card">
+                            <div class="dm-title">🏛️ Finance Agent</div>
+                            <div class="dm-agent-detail">Unified accounting across all entities. Invoice scanning, tax prep, cash flow forecasting.</div>
+                            <div class="dm-stat-row"><span>Invoices processed:</span><span style="color:#00e5ff">156</span></div>
+                            <div class="dm-stat-row"><span>Entities:</span><span>6</span></div>
+                            <div class="dm-stat-row"><span>Tax status:</span><span style="color:#00e676">Compliant</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Finance tab -->
+                <div class="dm-tab" id="dm-finance" style="display:none;">
+                    <div class="dm-grid" style="grid-template-columns:1fr 1fr 1fr;">
+                        <div class="dm-card" style="grid-column:span 2;">
+                            <div class="dm-title">💰 Revenue Breakdown — February 2026</div>
+                            <div style="display:flex;gap:20px;margin-top:12px;flex-wrap:wrap;">
+                                <div><div style="font-size:8px;color:#6b6b8a;">TOTAL REVENUE</div><div style="font-size:24px;font-weight:800;color:#00e676;font-family:'JetBrains Mono',monospace;">€147,830</div></div>
+                                <div><div style="font-size:8px;color:#6b6b8a;">EXPENSES</div><div style="font-size:24px;font-weight:800;color:#ff3d57;font-family:'JetBrains Mono',monospace;">€41,200</div></div>
+                                <div><div style="font-size:8px;color:#6b6b8a;">NET PROFIT</div><div style="font-size:24px;font-weight:800;color:#00e5ff;font-family:'JetBrains Mono',monospace;">€106,630</div></div>
+                            </div>
+                            <div style="margin-top:14px;">
+                                <div class="dm-biz">🏢 Business Unit A <span style="color:#00e676">€68,420 ↑12%</span></div>
+                                <div class="dm-biz">🎓 Education Division <span style="color:#00e676">€52,100 ↑28%</span></div>
+                                <div class="dm-biz">💻 Digital Products <span style="color:#00e5ff">€18,750 ↑156%</span></div>
+                                <div class="dm-biz">📈 Trading <span style="color:#a855f7">€8,560 new</span></div>
                             </div>
                         </div>
-                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:14px;">
-                            <div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">AI Income vs Target</div>
-                            <div style="font-size:32px;font-weight:800;color:#00e5ff;margin-bottom:4px;">$12,840</div>
-                            <div style="font-size:9px;color:#4a4a6a;margin-bottom:8px;">Target: $15,000/mo</div>
-                            <div style="height:6px;background:#1a1a3a;border-radius:3px;"><div style="width:86%;height:100%;background:linear-gradient(90deg,#00e5ff,#a855f7);border-radius:3px;"></div></div>
-                            <div style="font-size:9px;color:#00e5ff;margin-top:6px;">86% of target ↑</div>
-                        </div>
-                    </div>
-                    <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:14px;">
-                        <div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">Recent Transactions</div>
-                        <div style="display:flex;flex-direction:column;gap:6px;">
-                            <div style="display:flex;justify-content:space-between;font-size:10px;padding:6px 0;border-bottom:1px solid #141430;"><span style="color:#e8eaf6;">AI Starter Kit sale</span><span style="color:#00e676;">+$97</span></div>
-                            <div style="display:flex;justify-content:space-between;font-size:10px;padding:6px 0;border-bottom:1px solid #141430;"><span style="color:#e8eaf6;">Done-For-You build</span><span style="color:#00e676;">+$497</span></div>
-                            <div style="display:flex;justify-content:space-between;font-size:10px;padding:6px 0;border-bottom:1px solid #141430;"><span style="color:#e8eaf6;">Arb trade settled</span><span style="color:#ffd600;">+$12.40</span></div>
-                            <div style="display:flex;justify-content:space-between;font-size:10px;padding:6px 0;"><span style="color:#e8eaf6;">AI Agent Blueprint × 3</span><span style="color:#00e676;">+$57</span></div>
+                        <div class="dm-card">
+                            <div class="dm-title">📊 KPIs</div>
+                            <div class="dm-stat-row"><span>MRR Growth:</span><span style="color:#00e676">+23%</span></div>
+                            <div class="dm-stat-row"><span>Profit Margin:</span><span style="color:#00e676">72%</span></div>
+                            <div class="dm-stat-row"><span>Active Clients:</span><span>342</span></div>
+                            <div class="dm-stat-row"><span>Churn Rate:</span><span style="color:#00e676">2.1%</span></div>
+                            <div class="dm-stat-row"><span>LTV:</span><span style="color:#00e5ff">€2,840</span></div>
                         </div>
                     </div>
                 </div>
-
-                <!-- TRADING TAB -->
-                <div id="tab-trading" class="spark-tab-content" style="display:none;padding:16px;flex-direction:column;gap:10px;">
-                    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
-                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-top:2px solid #ffd600;"><div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Total Profit</div><div style="font-size:22px;font-weight:800;color:#ffd600;">$3,240</div></div>
-                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-top:2px solid #00e5ff;"><div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Total Trades</div><div style="font-size:22px;font-weight:800;color:#00e5ff;">847</div></div>
-                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-top:2px solid #00e676;"><div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Win Rate</div><div style="font-size:22px;font-weight:800;color:#00e676;">91%</div></div>
-                        <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:12px;border-top:2px solid #a855f7;"><div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Avg Spread</div><div style="font-size:22px;font-weight:800;color:#a855f7;">2.4%</div></div>
-                    </div>
-                    <div style="background:#0d0d20;border:1px solid #1a1a3a;border-radius:8px;padding:14px;">
-                        <div style="font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">Live Trade Feed</div>
-                        <div style="display:grid;grid-template-columns:80px 1fr 70px 70px;gap:8px;font-size:8px;color:#4a4a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid #141430;">
-                            <span>Time</span><span>Market</span><span>Spread</span><span>Profit</span>
+                <!-- Projects tab -->
+                <div class="dm-tab" id="dm-projects" style="display:none;">
+                    <div class="dm-grid" style="grid-template-columns:1fr 1fr 1fr;">
+                        <div class="dm-card">
+                            <div class="dm-label">IN PROGRESS</div>
+                            <div class="dm-pri"><span class="dm-p1">DEV</span> AI Starter Kit v2</div>
+                            <div class="dm-pri"><span class="dm-p1">DEV</span> Weather Trading Bot</div>
+                            <div class="dm-pri"><span class="dm-p2">CONTENT</span> Instagram Launch</div>
                         </div>
-                        <div style="display:flex;flex-direction:column;gap:4px;" id="mock-trades"></div>
+                        <div class="dm-card">
+                            <div class="dm-label">COMPLETED</div>
+                            <div class="dm-pri"><span class="dm-p2" style="background:rgba(0,230,118,0.1);color:#00e676;">DONE</span> AI Blueprint Ebook</div>
+                            <div class="dm-pri"><span class="dm-p2" style="background:rgba(0,230,118,0.1);color:#00e676;">DONE</span> Dashboard v2</div>
+                            <div class="dm-pri"><span class="dm-p2" style="background:rgba(0,230,118,0.1);color:#00e676;">DONE</span> Landing Page</div>
+                        </div>
+                        <div class="dm-card">
+                            <div class="dm-label">UPCOMING</div>
+                            <div class="dm-pri"><span class="dm-p3">Q2</span> Mobile App</div>
+                            <div class="dm-pri"><span class="dm-p3">Q2</span> Client Portal</div>
+                            <div class="dm-pri"><span class="dm-p3">Q3</span> API Marketplace</div>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
-        <style>
-        .spark-tab:hover { color: #e8eaf6 !important; }
-        @keyframes fadeTab { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
-        .spark-tab-content { animation: fadeTab .2s ease; }
-        </style>
-
-        <script>
-        function switchTab(name) {
-            document.querySelectorAll('.spark-tab-content').forEach(el => el.style.display = 'none');
-            document.querySelectorAll('.spark-tab').forEach(el => {
-                el.style.color = '#4a4a6a';
-                el.style.borderBottom = '2px solid transparent';
-            });
-            const content = document.getElementById('tab-' + name);
-            content.style.display = 'flex';
-            const tab = document.querySelector('[data-tab="' + name + '"]');
-            tab.style.color = '#00e5ff';
-            tab.style.borderBottom = '2px solid #00e5ff';
-            if(name === 'trading') renderTrades();
-        }
-
-        const feedItems = [
-            { color:'#00e676', text:'Arb trade executed · BTC 5-min · +$3.80' },
-            { color:'#00e5ff', text:'New product sale · AI Starter Kit · +$97' },
-            { color:'#a855f7', text:'Commander: 47 emails processed · 3 flagged' },
-            { color:'#ff9100', text:'Creative: 12 posts scheduled across 3 brands' },
-            { color:'#ffd600', text:'Trading: Spread detected 2.1% · Executing...' },
-            { color:'#00e676', text:'Payroll calculated · 6 staff · All correct' },
-            { color:'#00e5ff', text:'Blueprint sale × 2 · +$38' },
-            { color:'#a855f7', text:'Sentinel: All systems nominal' },
-        ];
-        let feedIdx = 0;
-        function tickFeed() {
-            const feed = document.getElementById('mock-feed');
-            if(!feed) return;
-            const item = feedItems[feedIdx % feedItems.length];
-            const row = document.createElement('div');
-            row.style.cssText = 'display:flex;align-items:center;gap:8px;font-size:10px;padding:4px 0;animation:fadeTab .3s ease';
-            row.innerHTML = `<span style="color:${item.color};font-size:8px;">●</span><span style="color:#4a4a6a;font-size:9px;">${new Date().toLocaleTimeString()}</span><span style="color:#c8cae6;">${item.text}</span>`;
-            feed.insertBefore(row, feed.firstChild);
-            if(feed.children.length > 5) feed.removeChild(feed.lastChild);
-            feedIdx++;
-        }
-
-        // Tick numbers
-        function tickNumbers() {
-            const rev = document.getElementById('mock-rev');
-            const ai = document.getElementById('mock-ai');
-            const tasks = document.getElementById('mock-tasks');
-            if(rev) { let v = parseInt(rev.textContent.replace(/[$,]/g,'')); rev.textContent = '$' + (v + Math.floor(Math.random()*3)).toLocaleString(); }
-            if(tasks) { let v = parseInt(tasks.textContent.replace(/,/g,'')); tasks.textContent = (v + Math.floor(Math.random()*2)).toLocaleString(); }
-        }
-
-        const mockTrades = [
-            ['09:14:22','BTC 5-min YES/NO','2.3%','+$2.88'],
-            ['09:12:07','BTC 5-min YES/NO','1.8%','+$2.25'],
-            ['09:09:55','BTC 5-min YES/NO','3.1%','+$3.88'],
-            ['09:07:33','BTC 5-min YES/NO','2.0%','+$2.50'],
-            ['09:04:11','BTC 5-min YES/NO','1.6%','+$2.00'],
-        ];
-        function renderTrades() {
-            const el = document.getElementById('mock-trades');
-            if(!el||el.children.length) return;
-            mockTrades.forEach(([t,m,s,p]) => {
-                el.innerHTML += `<div style="display:grid;grid-template-columns:80px 1fr 70px 70px;gap:8px;font-size:10px;padding:5px 0;border-bottom:1px solid #0f0f25;align-items:center;">
-                    <span style="color:#4a4a6a">${t}</span>
-                    <span style="color:#c8cae6">${m}</span>
-                    <span style="background:rgba(0,230,118,.08);border:1px solid rgba(0,230,118,.2);color:#00e676;padding:1px 6px;border-radius:3px;font-size:9px;text-align:center;">${s}</span>
-                    <span style="color:#00e676;font-weight:700">${p}</span>
-                </div>`;
-            });
-        }
-
-        // Init
-        tickFeed();
-        setInterval(tickFeed, 3000);
-        setInterval(tickNumbers, 2500);
-        </script>
     </section>
 
     <!-- PRODUCTS -->
@@ -742,6 +653,28 @@
         <div class="section-label">// get started</div>
         <div class="section-title">Choose Your Level</div>
         <div class="section-sub">Whether you want to learn, build, or have it done — there's an option for you.</div>
+
+        <!-- FREE LEAD MAGNET ROW -->
+        <div style="margin-bottom:24px;">
+            <div class="product-card free-card" style="max-width:600px;margin:0 auto;">
+                <div class="product-tag tag-free">🎁 Free</div>
+                <div class="product-name">6 Ways to Make Money With AI in 2025</div>
+                <div class="free-badge">FREE</div>
+                <div class="product-desc">
+                    The exact income streams I use. No fluff, no theory — real methods with real numbers.
+                    6 pages. Immediate download. Email required.
+                </div>
+                <ul class="product-features">
+                    <li>6 monetizable AI income streams</li>
+                    <li>Which tools to use for each method</li>
+                    <li>Real revenue estimates</li>
+                    <li>Step-by-step starting point for each</li>
+                </ul>
+                <a href="https://mimibuildsai.gumroad.com/l/ai-income-guide-free" class="product-btn btn-outline" style="border-color:var(--green);color:var(--green);">Download Free Guide ⚡</a>
+            </div>
+        </div>
+
+        <div style="text-align:center;margin-bottom:32px;color:var(--dim);font-size:13px;letter-spacing:1px;">— READY TO GO DEEPER? —</div>
 
         <div class="products-grid">
             <!-- BLUEPRINT -->
@@ -762,6 +695,26 @@
                     <li>Monetization strategies</li>
                 </ul>
                 <a href="https://mimibuildsai.gumroad.com/l/howtobuildai" class="product-btn btn-outline">Get the Blueprint →</a>
+            </div>
+
+            <!-- OPENCLAW CREDITS GUIDE -->
+            <div class="product-card">
+                <div class="product-tag tag-tools">Tools</div>
+                <div class="product-name">OpenClaw Credits Guide</div>
+                <div class="product-price"><span class="currency">$</span>27</div>
+                <div class="product-desc">
+                    Run a full AI agent stack for under $20/month. Real config, real costs, no wasted credits.
+                    The exact setup I use daily.
+                </div>
+                <ul class="product-features">
+                    <li>Full credit system explained</li>
+                    <li>Model selection by task type</li>
+                    <li>Heartbeat & cron optimization</li>
+                    <li>Real monthly cost breakdown</li>
+                    <li>Pro tips to cut spend by 60%+</li>
+                    <li>Copy-paste config templates</li>
+                </ul>
+                <a href="https://mimibuildsai.gumroad.com/l/openclaw-credits" class="product-btn btn-outline" style="border-color:var(--cyan);color:var(--cyan);">Get the Guide →</a>
             </div>
 
             <!-- STARTER KIT -->
@@ -814,19 +767,60 @@
         <div class="section-title">This Is For You If...</div>
         <div class="features-grid">
             <div class="feature">
+                <div class="feature-icon">💸</div>
+                <div class="feature-title">You Want to Make Money Online</div>
+                <div class="feature-desc">AI agents can generate revenue while you sleep. Trading bots, content automation, lead generation — build once, earn forever. This is the playbook.</div>
+            </div>
+            <div class="feature">
                 <div class="feature-icon">🏪</div>
                 <div class="feature-title">You Run a Business</div>
-                <div class="feature-desc">And you're tired of doing everything manually. Payroll, follow-ups, reporting — you know there's a better way but don't know where to start.</div>
+                <div class="feature-desc">And you're drowning in admin. Payroll, follow-ups, reporting, scheduling — all of it can be automated. I did it across 6 companies. You can too.</div>
             </div>
             <div class="feature">
                 <div class="feature-icon">💻</div>
                 <div class="feature-title">You Want to Sell AI Services</div>
-                <div class="feature-desc">Every business needs this. If you can build it, you can charge $500-2,500 per client. The Starter Kit is your foundation.</div>
+                <div class="feature-desc">Every business owner you know needs this. Learn to build it, then charge €500-2,500 per client. The demand is insane right now.</div>
             </div>
             <div class="feature">
                 <div class="feature-icon">🧠</div>
-                <div class="feature-title">You're Done With "Tips"</div>
-                <div class="feature-desc">You've watched the YouTube videos. You've saved the Twitter threads. Now you want actual architecture, not more theory.</div>
+                <div class="feature-title">You're Done With Theory</div>
+                <div class="feature-desc">You've watched 100 YouTube videos about AI. Saved 50 Twitter threads. Still haven't built anything. This is the part where you actually start.</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⏰</div>
+                <div class="feature-title">You Want Your Time Back</div>
+                <div class="feature-desc">I went from 14-hour days to checking my phone once each morning. AI handles the rest. That's not a flex — it's architecture.</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🚀</div>
+                <div class="feature-title">You Want to Go All In on AI</div>
+                <div class="feature-desc">Not "dabble." Not "try it out." You want to build real systems that compound. If you're reading this, you already know AI is the move. Stop waiting.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <section style="text-align:center;">
+        <div class="section-label">// what changed</div>
+        <div class="section-title" style="margin-bottom:40px;">Before AI vs After AI</div>
+        <div class="features-grid" style="max-width:900px;margin:0 auto;">
+            <div class="feature" style="text-align:center;">
+                <div style="font-size:13px;color:var(--red);text-decoration:line-through;margin-bottom:4px;">14-hour days doing admin</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--green);margin-bottom:8px;">1 morning check</div>
+                <div class="feature-title">That's My Entire Workday Now</div>
+                <div class="feature-desc">AI handles payroll, scheduling, follow-ups, reporting, and revenue tracking. I handle strategy.</div>
+            </div>
+            <div class="feature" style="text-align:center;">
+                <div style="font-size:13px;color:var(--red);text-decoration:line-through;margin-bottom:4px;">Managing everything manually</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--cyan);margin-bottom:8px;">7 agents</div>
+                <div class="feature-title">Working 24/7 Without Me</div>
+                <div class="feature-desc">Trading, content, finance, security, operations — each agent handles a domain autonomously. They never sleep.</div>
+            </div>
+            <div class="feature" style="text-align:center;">
+                <div style="font-size:13px;color:var(--red);text-decoration:line-through;margin-bottom:4px;">Spreadsheets and guesswork</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--purple);margin-bottom:8px;">6 businesses</div>
+                <div class="feature-title">One Dashboard</div>
+                <div class="feature-desc">Every company, every revenue stream, every metric — unified in one command center with voice briefings.</div>
             </div>
         </div>
     </section>
@@ -865,12 +859,12 @@
     <!-- FINAL CTA -->
     <div class="final-cta">
         <div class="hero-badge">⚡ stop scrolling. start building.</div>
-        <h2>Your business should run itself.</h2>
-        <p>Pick the level that fits. Start today. No excuses.</p>
+        <h2>Every day you wait, someone else builds this first.</h2>
+        <p>The AI wave isn't coming — it's here. The question isn't if you should build AI systems. It's whether you'll be the one selling them or the one buying them.</p>
         <div class="hero-ctas">
-            <a href="https://mimibuildsai.gumroad.com/l/howtobuildai" class="btn-primary">$19 — Blueprint</a>
-            <a href="https://mimibuildsai.gumroad.com/l/aistarterkit" class="btn-cyan" style="padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;">$97 — Starter Kit</a>
-            <a href="https://mimibuildsai.gumroad.com/l/aiforyou" class="btn-secondary">$497 — Done For You</a>
+            <a href="https://mimibuildsai.gumroad.com/l/howtobuildai" class="btn-primary">€19 — Blueprint</a>
+            <a href="https://mimibuildsai.gumroad.com/l/aistarterkit" class="btn-cyan" style="padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;">€97 — Starter Kit</a>
+            <a href="https://mimibuildsai.gumroad.com/l/aiforyou" class="btn-secondary">€497 — Done For You</a>
         </div>
     </div>
 
@@ -892,6 +886,14 @@
                 item.classList.toggle('open');
             });
         });
+
+        // Dashboard mock tabs
+        function showDmTab(tab) {
+            document.querySelectorAll('.dm-tab').forEach(t => t.style.display = 'none');
+            document.querySelectorAll('.dm-nav-pill').forEach(p => p.classList.remove('active'));
+            document.getElementById('dm-' + tab).style.display = 'block';
+            event.target.classList.add('active');
+        }
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(a => {
